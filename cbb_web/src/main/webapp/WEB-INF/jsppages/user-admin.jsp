@@ -208,7 +208,7 @@
 
                         <div class="box-tools pull-right">
                             <ul class="pagination">
-                                <li><a href="#" aria-label="Previous">首页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do" aria-label="Previous">首页</a></li>
                                 <li><a href="#">上一页</a></li>
                                 <li><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>

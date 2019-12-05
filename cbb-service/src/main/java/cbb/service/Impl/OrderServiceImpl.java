@@ -1,7 +1,6 @@
 package cbb.service.Impl;
 
 import cbb.dao.OrderDao;
-import cbb.domain.Order;
 import cbb.domain.OrderUserAndGoodName;
 import cbb.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +22,15 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteOrderById(String id) {
         orderDao.deleteOrderById(id);
+    }
+
+    @Override
+    public void addOrder(String userid, String goodid) {
+        orderDao.addOrder(userid,goodid);
+    }
+
+    @Override
+    public void deleteOrderByUserIdAndGoodId(String userid, String goodid) {
+        orderDao.deleteOrderByUserIdAndGoodId(userid,goodid);
     }
 }

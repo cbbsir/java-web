@@ -168,11 +168,11 @@
                                     </thead>
 
                                     <tbody>
-                                    <c:forEach items="${goodList}" var="good">
+                                    <c:forEach items="${user.goods}" var="good">
                                         <tr>
                                             <td>${good.goodname }</td>
                                             <td>${good.price }</td>
-                                        <td><a onclick="fun1()" data-target="#myModal" href="${pageContext.request.contextPath}/good/goodtest/user/${user.username}/buy.do?userid=${user.id}&goodid=${good.id}"><span class="glyphicon glyphicon-plus">购买</span></a></td>
+                                        <td><a onclick="fun1()" data-target="#myModal" href="${pageContext.request.contextPath}/order/ordertest/user/${user.username}/delete.do?userid=${user.id}&goodid=${good.id}"><span class="glyphicon glyphicon-remove">删除</span></a></td>
 <%--                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myDivButton">购买</button>--%>
 <%--                                                <div class="modal fade" id="myDivButton" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--%>
 <%--                                                    <div class="modal-dialog" role="document">--%>
@@ -280,7 +280,7 @@
 <script>
 
     function fun1() {
-        alert('购买成功');
+        alert('删除成功');
     }    
 </script>
 </body>

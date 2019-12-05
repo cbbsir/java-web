@@ -70,4 +70,6 @@ public class UserController {
         mv.setViewName("redirect:/user/usertest/admin"+".do");
         return mv;
     }
+
+
 }

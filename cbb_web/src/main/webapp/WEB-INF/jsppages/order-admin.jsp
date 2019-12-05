@@ -181,7 +181,6 @@
                                             <td>￥${orderUserAndGoodName.price }</td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/order/${orderUserAndGoodName.id}/delete.do"><span class="glyphicon glyphicon-remove-circle">删除</span></a>
-                                                <a href="${pageContext.request.contextPath}/order/${orderUserAndGoodName.id}/update.do"><span class="glyphicon glyphicon-pencil">修改</span></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

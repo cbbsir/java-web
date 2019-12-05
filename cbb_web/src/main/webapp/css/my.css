@@ -16,3 +16,7 @@
 .my-content-border{
     border: #2b542c 2px solid;
 }
+p.myClass{
+    font-size: 20px;
+    font-weight: bold;
+}
