@@ -173,8 +173,8 @@
                                     </thead>
 
                                     <tbody>
-                                    <c:forEach items="${userInfoList}" var="user">
-                                            <td>${user.username }</td>
+                                    <c:forEach items="${pageInfoUsers.list}" var="user">
+                                            <td>${user.username}</td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/user/${user.username}/delete.do"><span class="glyphicon glyphicon-remove-circle">删除</span></a>
                                                 <a href="${pageContext.request.contextPath}/user/${user.id}/update.do"><span class="glyphicon glyphicon-pencil">修改</span></a>
@@ -196,7 +196,9 @@
                     <div class="box-footer">
                         <div class="pull-left">
                             <div class="form-group form-inline">
-                                总共2 页，共14 条数据。 每页 <select class="form-control">
+
+
+                                总共${pageInfoUsers.pages}页，共${pageInfoUsers.total}条数据。 每页 <select class="form-control" id="changePageSize" onchange="changePageSize()">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -208,14 +210,12 @@
 
                         <div class="box-tools pull-right">
                             <ul class="pagination">
-                                <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do" aria-label="Previous">首页</a></li>
-                                <li><a href="#">上一页</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">下一页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do?page=1&size=${pageInfoUsers.pageSize}" aria-label="Previous">首页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do?page=${pageInfoUsers.pageNum-1}&size=${pageInfoUsers.pageSize}">上一页</a></li>
+                                <c:forEach begin="1" end="${pageInfoUsers.pages}" var="pageNum">
+                                    <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do?page=${pageNum}&size=${pageInfoUsers.pageSize}">${pageNum}</a></li>
+                                </c:forEach>
+                                <li><a href="${pageContext.request.contextPath}/user/usertest/admin.do?page=${pageInfoUsers.pageNum+1}&size=${pageInfoUsers.pageSize}">下一页</a></li>
                                 <li><a href="#" aria-label="Next">尾页</a></li>
                             </ul>
                         </div>
@@ -258,5 +258,18 @@
 
 
 </div>
+
+<script>
+    function changePageSize() {
+        //获取下拉框的值
+        var pageSize = $("#changePageSize").val();
+
+        //向服务器发送请求，改变每页显示条数
+        location.href = "${pageContext.request.contextPath}/user/usertest/admin.do?page=1&size="
+            + pageSize;
+    }
+
+
+</script>
 </body>
 </html>

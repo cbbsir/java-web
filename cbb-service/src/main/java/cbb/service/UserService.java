@@ -10,7 +10,7 @@ public interface UserService {
 
     UserInfo findByUserName(String username);
 
-    List<UserInfo> findAll();
+    List<UserInfo> findAll(int page,int size);
 
     void deleteByUserName(String username);
 

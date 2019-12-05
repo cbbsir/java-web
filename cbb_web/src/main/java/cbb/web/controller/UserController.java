@@ -2,9 +2,12 @@ package cbb.web.controller;
 
 import cbb.domain.UserInfo;
 import cbb.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,10 +38,17 @@ public class UserController {
 
     //用户管理
     @RequestMapping("/usertest/admin")
-    public ModelAndView userAdmin(){
+    public ModelAndView userAdmin(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "4") int size){
         ModelAndView mv = new ModelAndView();
-        List<UserInfo> userInfoList = userService.findAll();
-        mv.addObject("userInfoList",userInfoList);
+        //设置分页插件
+        PageHelper.startPage(page, size);
+        List<UserInfo> userInfoList = userService.findAll(page,size);
+        //PageInfo就是一个分页Bean
+        PageInfo pageInfoUsers = new PageInfo(userInfoList);
+        int myPages=pageInfoUsers.getPages();
+//        int myPageSize=pageInfoUsers.getPageSize();
+//        int count=myPages*myPageSize;
+        mv.addObject("pageInfoUsers",pageInfoUsers);
         mv.setViewName("user-admin");
         return mv;
     }

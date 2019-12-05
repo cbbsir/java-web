@@ -3,6 +3,7 @@ package cbb.service.Impl;
 import cbb.dao.UserDao;
 import cbb.domain.UserInfo;
 import cbb.service.UserService;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserInfo> findAll() {
+    public List<UserInfo> findAll(int page, int size) {
         return userDao.findAll();
     }
 
