@@ -1,0 +1,18 @@
+.my-content-container {
+    margin-top: 50px;
+}
+.my-text-container {
+    margin-top: 2px;
+}
+.my-navbtn-change{
+    margin: 5px;
+}
+.my-navbtn-right{
+    text-align: right;
+}
+.my-navbtn-center{
+    text-align: center;
+}
+.my-content-border{
+    border: #2b542c 2px solid;
+}
