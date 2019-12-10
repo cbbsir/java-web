@@ -6,6 +6,8 @@ import cbb.domain.UserInfo;
 import cbb.service.GoodService;
 import cbb.service.OrderService;
 import cbb.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,10 +31,15 @@ public class GoodController {
 
     //管理员对商品拥有所有权限,返回商品列表信息
     @RequestMapping("/goodtest/admin")
-    public ModelAndView goodAdmin(){
+    public ModelAndView goodAdmin(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "10") int size){
         ModelAndView mv = new ModelAndView();
-        List<Good> goodList = goodService.findAll();
+        //设置分页插件
+        PageHelper.startPage(page, size);
+        List<Good> goodList = goodService.findAll(page, size);
+        PageInfo pageInfoGoodList = new PageInfo(goodList);
+        int myPages=pageInfoGoodList.getPages();
         mv.addObject("goodList",goodList);
+        mv.addObject("pageInfoGoodList",pageInfoGoodList);
         mv.setViewName("good-admin");
         return mv;
     }
@@ -68,12 +75,17 @@ public class GoodController {
 
     //用户登录,可对商品进行购买等操作
     @RequestMapping(value = "/goodtest/user/{username}/goodManage")
-    public ModelAndView goodUser(@PathVariable String username){
+    public ModelAndView goodUser(@PathVariable String username,@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "10") int size){
         ModelAndView mv = new ModelAndView();
         UserInfo userInfo = userService.findByUserName(username);
-        List<Good> goodList = goodService.findAll();
+        //设置分页插件
+        PageHelper.startPage(page, size);
+        List<Good> goodList = goodService.findAll(page,size);
+        PageInfo pageInfoGoodList = new PageInfo(goodList);
+        int myPages=pageInfoGoodList.getPages();
         mv.addObject("user",userInfo);
         mv.addObject("goodList",goodList);
+        mv.addObject("pageInfoGoodList",pageInfoGoodList);
         mv.setViewName("user-good-show");
 
         return mv;

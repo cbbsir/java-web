@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>UserOrder</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- 内容区域 -->
-<div class="container">
+<div class="container my-bacground1">
     <nav class="nav navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">logo</a>
+                <a href="#" class="navbar-brand">欢迎您：${user.username}</a>
             </div>
             <div id="menu" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -39,11 +39,11 @@
                                 Bing <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -53,11 +53,11 @@
                                 Bing <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -69,11 +69,11 @@
                                 Chen <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -85,7 +85,7 @@
     <!-- 内容头部 -->
     <section class="content-header my-content-container">
         <h1>
-            用户管理 <small>全部用户</small>
+            用户管理
         </h1>
         <ol class="breadcrumb">
             <li><a href="${pageContext.request.contextPath}/index1.jsp"><i
@@ -93,7 +93,7 @@
             <li><a
                     href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
 
-            <li class="active">全部用户</li>
+            <li class="active">全部订单</li>
         </ol>
     </section>
     <!-- 内容头部 /-->
@@ -124,7 +124,7 @@
             <section class="content"> <!-- .box-body -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">列表</h3>
+                        <h3 class="box-title">订单</h3>
                     </div>
 
                     <div class="box-body">
@@ -133,27 +133,19 @@
                         <div class="table-box ">
 
                             <!--工具栏-->
-                            <div class="pull-left">
-                                <div class="form-group form-inline">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建">
-                                            <i class="fa fa-file-o"></i> 新建
-                                        </button>
+<%--                            <div class="pull-left">--%>
+<%--                                <div class="form-group form-inline">--%>
+<%--                                    <div class="btn-group">--%>
+<%--                                        <button type="button" class="btn btn-default" title="新建">--%>
+<%--                                            <i class="fa fa-file-o"></i> 新建--%>
+<%--                                        </button>--%>
 
-                                        <button type="button" class="btn btn-default" title="刷新">
-                                            <i class="fa fa-refresh"></i> 刷新
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-tools pull-right">
-                                <div class="has-feedback">
-                                    <input type="text" class="form-control input-sm"
-                                           placeholder="搜索"> <span
-                                        class="glyphicon glyphicon-search form-control-feedback"></span>
-                                </div>
-                            </div>
-                            <!--工具栏/-->
+<%--                                        <button type="button" class="btn btn-default" title="刷新">--%>
+<%--                                            <i class="fa fa-refresh"></i> 刷新--%>
+<%--                                        </button>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 
                             <!--数据列表-->
                             <div class="tab-pane" id="tab-treetable">
@@ -161,18 +153,18 @@
                                        class="table table-bordered table-hover dataTable">
                                     <thead>
                                     <tr>
-                                        <th>名称</th>
-                                        <th>价格</th>
-                                        <th>操作</th>
+                                        <th class="active">名称</th>
+                                        <th class="success">价格</th>
+                                        <th class="info">操作</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
                                     <c:forEach items="${user.goods}" var="good">
                                         <tr>
-                                            <td>${good.goodname }</td>
-                                            <td>${good.price }</td>
-                                        <td><a onclick="fun1()" data-target="#myModal" href="${pageContext.request.contextPath}/order/ordertest/user/${user.username}/delete.do?userid=${user.id}&goodid=${good.id}"><span class="glyphicon glyphicon-remove">删除</span></a></td>
+                                            <td class="active">${good.goodname }</td>
+                                            <td class="success">${good.price }</td>
+                                        <td class="info"><a onclick="fun1()" data-target="#myModal" href="${pageContext.request.contextPath}/order/ordertest/user/${user.username}/delete.do?userid=${user.id}&goodid=${good.id}"><span class="glyphicon glyphicon-remove">删除</span></a></td>
 <%--                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myDivButton">购买</button>--%>
 <%--                                                <div class="modal fade" id="myDivButton" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--%>
 <%--                                                    <div class="modal-dialog" role="document">--%>
@@ -210,35 +202,6 @@
                     </div>
                     <!-- /.box-body -->
 
-                    <!-- .box-footer-->
-                    <div class="box-footer">
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                总共2 页，共14 条数据。 每页 <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select> 条
-                            </div>
-                        </div>
-
-                        <div class="box-tools pull-right">
-                            <ul class="pagination">
-                                <li><a href="#" aria-label="Previous">首页</a></li>
-                                <li><a href="#">上一页</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">下一页</a></li>
-                                <li><a href="#" aria-label="Next">尾页</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
                     <!-- /.box-footer-->
 
                 </div>
@@ -248,33 +211,16 @@
         </div>
     </div>
 
-    <div class="container my-content-container">
-        <table class="table table-hover">
 
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>描述</th>
-            </tr>
-            </thead>
+</div>
 
+<hr>
+<div class="container">
 
-                <td colspan="2">${user.username}</td>
-
-
-            <tbody>
-            <c:forEach items="${user.goods}" var="good">
-                <tr data-tt-id="${vs.index+1}" data-tt-parent-id="0">
-                    <td>${good.goodname }</td>
-                    <td>${good.price }</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-
-    </div>
-
-
+    <!-- Site footer -->
+    <footer class="footer">
+        <p>&copy; 2019 Personal, BingChen.</p>
+    </footer>
 </div>
 
 <script>

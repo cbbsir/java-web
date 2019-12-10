@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Order</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>

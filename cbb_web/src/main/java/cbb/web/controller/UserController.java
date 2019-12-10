@@ -28,7 +28,7 @@ public class UserController {
         //若为系统管理员，则跳转至系统管理员管理页面
         if (userInfo.getUsername().equals("admin")){
             mv.setViewName("user-admin");
-        } else{//若为普通用户则跳转至个人订单管理页面
+        } else{//若为普通用户则跳转至个人管理页面
             mv.setViewName("user-show");
         }
         mv.addObject("user",userInfo);

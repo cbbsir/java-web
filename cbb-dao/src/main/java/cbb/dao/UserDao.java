@@ -30,4 +30,7 @@ public interface UserDao {
 
     @Update("update user set username=#{username},password=#{password} where id=#{id}")
     void updateUserById(UserInfo user);
+
+    @Insert("insert into user(username,password) values(#{username},#{password})")
+    void saveUser(UserInfo user);
 }

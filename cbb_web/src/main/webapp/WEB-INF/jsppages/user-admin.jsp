@@ -10,7 +10,8 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Admin</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
@@ -138,27 +139,27 @@
                         <!-- 数据表格 -->
                         <div class="table-box ">
 
-                            <!--工具栏-->
-                            <div class="pull-left">
-                                <div class="form-group form-inline">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建">
-                                            <i class="fa fa-file-o"></i> 新建
-                                        </button>
+<%--                            <!--工具栏-->--%>
+<%--                            <div class="pull-left">--%>
+<%--                                <div class="form-group form-inline">--%>
+<%--                                    <div class="btn-group">--%>
+<%--                                        <button type="button" class="btn btn-default" title="新建">--%>
+<%--                                            <i class="fa fa-file-o"></i> 新建--%>
+<%--                                        </button>--%>
 
-                                        <button type="button" class="btn btn-default" title="刷新">
-                                            <i class="fa fa-refresh"></i> 刷新
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-tools pull-right">
-                                <div class="has-feedback">
-                                    <input type="text" class="form-control input-sm"
-                                           placeholder="搜索"> <span
-                                        class="glyphicon glyphicon-search form-control-feedback"></span>
-                                </div>
-                            </div>
+<%--                                        <button type="button" class="btn btn-default" title="刷新">--%>
+<%--                                            <i class="fa fa-refresh"></i> 刷新--%>
+<%--                                        </button>--%>
+<%--                                    </div>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                            <div class="box-tools pull-right">--%>
+<%--                                <div class="has-feedback">--%>
+<%--                                    <input type="text" class="form-control input-sm"--%>
+<%--                                           placeholder="搜索"> <span--%>
+<%--                                        class="glyphicon glyphicon-search form-control-feedback"></span>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
                             <!--工具栏/-->
 
                             <!--数据列表-->
@@ -228,32 +229,6 @@
             </section>
             <!-- 正文区域 /-->
         </div>
-    </div>
-
-    <div class="container my-content-container">
-        <table class="table table-hover">
-
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-
-
-                <td colspan="2">${user.username}</td>
-
-
-            <tbody>
-            <c:forEach items="${user.goods}" var="good">
-                <tr data-tt-id="${vs.index+1}" data-tt-parent-id="0">
-                    <td>${good.goodname }</td>
-                    <td>${good.price }</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-
     </div>
 
 

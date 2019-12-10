@@ -15,7 +15,7 @@ public class GoodServiceImpl implements GoodService {
     GoodDao goodDao;
 
     @Override
-    public List<Good> findAll() {
+    public List<Good> findAll(int page,int size) {
         return goodDao.findAll();
     }
 

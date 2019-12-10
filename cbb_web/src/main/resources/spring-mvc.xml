@@ -73,7 +73,7 @@
     <mvc:resources location="/css/" mapping="/css/**" />
     <mvc:resources location="/fonts/" mapping="/fonts/**" />
     <mvc:resources location="/js/" mapping="/js/**" />
-    <mvc:resources location="/htmlpages/" mapping="/htmlpages/**" />
+<!--    <mvc:resources location="/htmlpages/" mapping="/htmlpages/**" />-->
 
     <!-- 开启对SpringMVC注解的支持 -->
     <mvc:annotation-driven />

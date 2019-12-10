@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>GoodShow</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
@@ -177,7 +177,7 @@
                                     <tbody>
                                     <c:forEach items="${goodList}" var="good">
                                             <td>${good.goodname }</td>
-                                            <td>${good.price }</td>
+                                            <td>￥${good.price }</td>
                                             <td>${good.information }</td>
                                             <td>
                                                 <a href="${pageContext.request.contextPath}/good/${good.id}/delete.do"><span class="glyphicon glyphicon-remove-circle">删除</span></a>
@@ -200,27 +200,30 @@
                     <div class="box-footer">
                         <div class="pull-left">
                             <div class="form-group form-inline">
-                                总共2 页，共14 条数据。 每页 <select class="form-control">
+
+
+                                总共${pageInfoGoodList.pages}页，共${pageInfoGoodList.total}条数据。 每页 <select class="form-control" id="changePageSize" onchange="changePageSize()">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>100</option>
                             </select> 条
                             </div>
                         </div>
 
                         <div class="box-tools pull-right">
                             <ul class="pagination">
-                                <li><a href="#" aria-label="Previous">首页</a></li>
-                                <li><a href="#">上一页</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">下一页</a></li>
-                                <li><a href="#" aria-label="Next">尾页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/good/goodtest/admin.do?page=1&size=${pageInfoGoodList.pageSize}" aria-label="Previous">首页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/good/goodtest/admin.do?page=${pageInfoGoodList.pageNum-1}&size=${pageInfoGoodList.pageSize}">上一页</a></li>
+                                <c:forEach begin="1" end="${pageInfoGoodList.pages}" var="pageNum">
+                                    <li><a href="${pageContext.request.contextPath}/good/goodtest/admin.do?page=${pageNum}&size=${pageInfoGoodList.pageSize}">${pageNum}</a></li>
+                                </c:forEach>
+                                <li><a href="${pageContext.request.contextPath}/good/goodtest/admin.do?page=${pageInfoGoodList.pageNum+1}&size=${pageInfoGoodList.pageSize}">下一页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/good/goodtest/admin.do?page=${pageInfoGoodList.pages}&size=${pageInfoGoodList.pageSize}" aria-label="Next">尾页</a></li>
                             </ul>
                         </div>
 
@@ -234,33 +237,19 @@
         </div>
     </div>
 
-    <div class="container my-content-container">
-        <table class="table table-hover">
-
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-
-
-                <td colspan="2">${user.username}</td>
-
-
-            <tbody>
-            <c:forEach items="${user.goods}" var="good">
-                <tr data-tt-id="${vs.index+1}" data-tt-parent-id="0">
-                    <td>${good.goodname }</td>
-                    <td>${good.price }</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-
-    </div>
-
-
 </div>
+
+<script>
+
+    function changePageSize() {
+        //获取下拉框的值
+        var pageSize = $("#changePageSize").val();
+
+        //向服务器发送请求，改变每页显示条数
+        location.href = "${pageContext.request.contextPath}/good/goodtest/admin.do?page=1&size="
+            + pageSize;
+    }
+</script>
+
 </body>
 </html>

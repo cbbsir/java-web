@@ -1,5 +1,8 @@
 .my-content-container {
-    margin-top: 50px;
+    margin-top: 100px;
+}
+.my-content-container1 {
+    margin-top: 300px;
 }
 .my-text-container {
     margin-top: 2px;
@@ -19,4 +22,59 @@
 p.myClass{
     font-size: 20px;
     font-weight: bold;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-control {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.my-bgcolor{
+    background-color: #F0F8FF;
+}
+
+.my-bacground1{
+    /*background-image: url("../imgs/back4.jpg");*/
+    background-image: url("http://cbbtest-1300822205.picsh.myqcloud.com/b1.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.my-bacground2{
+    background-image: url("../imgs/back2.jpg");
+    background-repeat: no-repeat;
+    background-size:150%;
+}
+.my-bacground3{
+    background-image: url("../imgs/back3.jpg");
+    background-repeat: no-repeat;
+    background-size:150%;
 }

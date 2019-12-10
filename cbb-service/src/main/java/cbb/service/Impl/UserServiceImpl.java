@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
         userDao.deleteByUserName(username);
     }
 
-
     @Override
     public void updateUserById(UserInfo user) {
         userDao.updateUserById(user);
@@ -46,4 +45,10 @@ public class UserServiceImpl implements UserService {
     public void deleteByUserId(String id) {
         userDao.deleteByUserId(id);
     }
+
+    @Override
+    public void saveUser(UserInfo user) {
+        userDao.saveUser(user);
+    }
+
 }

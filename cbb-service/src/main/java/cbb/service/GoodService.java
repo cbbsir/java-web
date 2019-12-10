@@ -5,7 +5,7 @@ import cbb.domain.Good;
 import java.util.List;
 
 public interface GoodService {
-    List<Good> findAll();
+    List<Good> findAll(int page,int size);
 
     void deleteGoodById(String id);
 

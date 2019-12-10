@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>User</title>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/my.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
@@ -19,7 +19,7 @@
 </head>
 <body>
 <!-- 内容区域 -->
-<div class="container">
+<div class="container my-bacground1">
     <nav class="nav navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand">logo</a>
+                <a href="#" class="navbar-brand">欢迎您：${user.username}</a>
             </div>
             <div id="menu" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -39,11 +39,11 @@
                                 Bing <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -53,11 +53,11 @@
                                 Bing <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -69,11 +69,11 @@
                                 Chen <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="https://www.baidu.com">Action</a></li>
+                                <li><a href="https://www.sina.com">Another action</a></li>
+                                <li><a href="https://www.tencent.com">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="https://www.alibaba.com">Separated link</a></li>
                             </ul>
                         </div>
                     </li>
@@ -85,15 +85,15 @@
     <!-- 内容头部 -->
     <section class="content-header my-content-container">
         <h1>
-            用户管理 <small>全部用户</small>
+            用户管理
         </h1>
         <ol class="breadcrumb">
             <li><a href="${pageContext.request.contextPath}/index1.jsp"><i
                     class="fa fa-dashboard"></i> 首页</a></li>
             <li><a
-                    href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
+                    href="#">用户管理</a></li>
 
-            <li class="active">全部用户</li>
+            <li class="active">用户管理</li>
         </ol>
     </section>
     <!-- 内容头部 /-->
@@ -132,27 +132,6 @@
                         <!-- 数据表格 -->
                         <div class="table-box ">
 
-                            <!--工具栏-->
-                            <div class="pull-left">
-                                <div class="form-group form-inline">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default" title="新建">
-                                            <i class="fa fa-file-o"></i> 新建
-                                        </button>
-
-                                        <button type="button" class="btn btn-default" title="刷新">
-                                            <i class="fa fa-refresh"></i> 刷新
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="box-tools pull-right">
-                                <div class="has-feedback">
-                                    <input type="text" class="form-control input-sm"
-                                           placeholder="搜索"> <span
-                                        class="glyphicon glyphicon-search form-control-feedback"></span>
-                                </div>
-                            </div>
                             <!--工具栏/-->
 
                             <!--数据列表-->
@@ -214,7 +193,7 @@
                     <div class="box-footer">
                         <div class="pull-left">
                             <div class="form-group form-inline">
-                                总共2 页，共14 条数据。 每页 <select class="form-control">
+                                总共0 页，共0 条数据。 每页 <select class="form-control">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -248,31 +227,6 @@
         </div>
     </div>
 
-    <div class="container my-content-container">
-        <table class="table table-hover">
-
-            <thead>
-            <tr>
-                <th>名称</th>
-                <th>描述</th>
-            </tr>
-            </thead>
-
-
-                <td colspan="2">${user.username}</td>
-
-
-            <tbody>
-            <c:forEach items="${user.goods}" var="good">
-                <tr data-tt-id="${vs.index+1}" data-tt-parent-id="0">
-                    <td>${good.goodname }</td>
-                    <td>${good.price }</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-
-    </div>
 
 
 </div>
